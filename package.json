@@ -1,0 +1,26 @@
+{
+  "name": "shareboard",
+  "description": "ShareBoard - an open source interactive whiteboard & collaboration app",
+  "version": "0.0.1",
+  "private": true,
+  "author": "ShareBoard Team",
+  "license": "MIT",
+  "contributors": [
+    "Carlo Morgenstern <carlo@morgenstern.io> (https://morgenstern.io)"
+  ],
+  "scripts": {
+    "start": "concurrently -n Backend,Frontend -c bgGreen,bgBlue \"cd backend && npm start\" \"cd frontend && npm start\"",
+    "build": "npm run clean && concurrently -n Backend,Frontend -c bgGreen,bgBlue \"cd backend && npm run build\" \"cd frontend && npm run build\"",
+    "test": "concurrently -n Backend,Frontend -c bgGreen,bgBlue \"cd backend && npm run test\" \"cd frontend && npm run test\"",
+    "lint": "cd backend && npm -s run lint && cd ../frontend && npm -s run lint && cd .. && npm -s run lint-shared",
+    "e2e": "cd frontend && npm run e2e",
+    "postinstall": "cd backend && npm install && cd ../frontend && npm install",
+    "clean": "rimraf dist",
+    "lint-shared": "echo Linting shared... && tslint -c tslint.json -p shared/tsconfig.json -t stylish"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.10.0"
+  }
+}

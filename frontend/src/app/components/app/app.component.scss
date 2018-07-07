@@ -1,0 +1,40 @@
+@import '../../../global-styles/tools';
+
+.navigation-bar {
+  &.top {
+    order: 0;
+    border-bottom: 1px solid $gray-700;
+  }
+
+  &.bottom {
+    order: 2;
+    border-top: 1px solid $gray-700;
+  }
+}
+
+.no-outline {
+  outline: none;
+}
+
+.navigation-link {
+  @include media-breakpoint-up(md) {
+    border-left: 1px solid $gray-700;
+  }
+
+  padding: spacers(1) spacers(3);
+
+  &:hover {
+    @include transition(background-color);
+    background-color: $primary;
+  }
+
+  &.large {
+    font-size: 1.4rem;
+  }
+}
+
+.user-dropdown {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

@@ -1,0 +1,16 @@
+// Bootstrap and custom tools usable by the component styles via importing
+// Everything in here not used by the component styles gets compiled down to nothing in css
+
+@import 'variables';
+
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+
+@mixin transition($property-name) {
+  transition: $property-name 0.3s ease-in-out;
+}
+
+@function spacers($key: 0) {
+  @return map-get($spacers, $key);
+}

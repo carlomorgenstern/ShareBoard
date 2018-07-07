@@ -1,0 +1,46 @@
+{
+  "extends": "../tslint.json",
+  "jsRules": {},
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
+  /* Rules are in the order as presented in the codelyzer documentation (https://codelyzer.com/rules/) */
+  "rules": {
+    /* Functionality */
+    "banana-in-box": true,
+    "contextual-life-cycle": true,
+    "decorator-not-allowed": true,
+    "pipe-impure": true,
+    "templates-no-negated-async": true,
+    "trackBy-function": true,
+
+    /* Maintainability */
+    "i18n": [
+      true,
+      "check-id"
+    ],
+    "no-attribute-parameter-decorator": true,
+    "no-forward-ref": true,
+    "no-input-rename": true,
+    "no-output-named-after-standard-event": true,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
+    "no-unused-css": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-decorator": true,
+    "use-pipe-transform-interface": true,
+    "use-view-encapsulation": true,
+
+    /* Style */
+    "angular-whitespace": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
+    "import-destructuring-spacing": true,
+    "pipe-naming": [
+      "camelCase"
+    ],
+    "use-host-property-decorator": true,
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true
+  }
+}

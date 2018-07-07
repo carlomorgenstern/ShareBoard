@@ -1,0 +1,67 @@
+<div class="d-flex flex-column h-100">
+  <nav *ngIf="isLoggedIn" class="navbar navbar-expand-md navbar-default p-0 navigation-bar" [class.top]="isNavTop" [class.bottom]="!isNavTop">
+    <!-- brand text -->
+    <a class="navbar-brand no-outline" routerLink="/">
+      <h2 class="mb-0 px-3 text-white" i18n="@@brandName">ShareBoard</h2>
+    </a>
+
+    <!-- burger menu button for mobile -->
+    <button type="button" class="navbar-toggler" (click)="navbarCollapsed = !navbarCollapsed" aria-label="Navigation ausklappen" i18n-aria-label="@@navCollapse">
+      <fa-icon class="text-white" [icon]="faBars"></fa-icon>
+    </button>
+
+    <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed">
+      <ul class="navbar-nav mr-auto">
+        <!-- navigation links -->
+        <li class="nav-item font-size-lg navigation-link large">
+          <a class="text-white" routerLink="/">
+            <fa-icon [icon]="faHome"></fa-icon>
+            <span class="ml-3" i18n="@@navHome">Home</span>
+          </a>
+        </li>
+      </ul>
+
+      <div ngbDropdown [placement]="['bottom-right', 'top-right', 'bottom-left', 'top-left']">
+        <div class="navbar-text text-light px-3" ngbDropdownToggle>
+          <ng-container i18n="@@navLoggedIn">Eingeloggt als</ng-container>
+          {{ userName }}
+        </div>
+
+        <!-- user menu -->
+        <div class="dropdown-menu bg-dark py-0" ngbDropdownMenu>
+          <ul class="user-dropdown">
+            <li class="nav-item navigation-link" routerLink="/profile">
+              <a class="text-white text-nowrap">
+                <fa-icon class="mr-3" [icon]="faUser" [fixedWidth]="true"></fa-icon>
+                <ng-container i18n="@@navProfile">Profil</ng-container>
+              </a>
+            </li>
+            <li *ngIf="isNavTop" class="nav-item navigation-link" (click)="isNavTop = !isNavTop">
+              <a class="text-white text-nowrap">
+                <fa-icon class="mr-3" [icon]="faArrowDown" [fixedWidth]="true"></fa-icon>
+                <ng-container i18n="@@navPullDown">Nach unten verschieben</ng-container>
+              </a>
+            </li>
+            <li *ngIf="!isNavTop" class="nav-item navigation-link" (click)="isNavTop = !isNavTop">
+              <a class="text-white text-nowrap">
+                <fa-icon class="mr-3" [icon]="faArrowUp" [fixedWidth]="true"></fa-icon>
+                <ng-container i18n="@@navPullUp">Nach oben verschieben</ng-container>
+              </a>
+            </li>
+            <li class="nav-item navigation-link" (click)="logout()">
+              <a class="text-white text-nowrap">
+                <fa-icon class="mr-3" [icon]="faSignOut" [fixedWidth]="true"></fa-icon>
+                <ng-container i18n="@@navLogout">Ausloggen</ng-container>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- entry point for other page components -->
+  <div class="d-flex flex-grow-1 order-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

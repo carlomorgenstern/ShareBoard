@@ -1,0 +1,76 @@
+# Git Ignore file, see https://git-scm.com/docs/gitignore
+
+### Backend
+## Node
+# Dependency directory
+backend/node_modules
+
+# Logs
+backend/logs
+backend/*.log
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+
+# Runtime data
+backend/pids
+backend/*.pid
+backend/*.seed
+backend/*.pid.lock
+
+# nyc test coverage
+backend/.nyc_output
+
+# Optional npm cache directory
+backend/.npm
+
+# Optional REPL history
+backend/.node_repl_history
+
+# dotenv environment variables file
+backend/.env
+
+
+### Frontend
+## Angular
+# Dependency directory
+frontend/node_modules
+
+# e2e
+frontend/e2e/*.js
+frontend/e2e/*.map
+
+# optional SASS cache
+frontend/.sass-cache
+
+# optional TypeScript output
+frontend/out-tsc
+
+
+### Miscellaneous
+## Meta dependency directory
+node_modules
+
+## Distribution directory
+dist
+
+## System Files
+.DS_Store
+Thumbs.db
+
+## IDEs and editors
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Others
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
