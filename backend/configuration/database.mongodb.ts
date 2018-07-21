@@ -12,6 +12,7 @@ export class MongoDb extends Database {
     const client = MongoClient.connect(connectionUri, {
       minSize: 2,
       poolSize: 10,
+      ssl: true,
       useNewUrlParser: true,
     });
     MongoDb.client = client;
