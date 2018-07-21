@@ -2,8 +2,8 @@
 
 // Include our own variables and then the bootstrap scss
 // Variables do not get overwritten because of the !default flag in bootstraps variables file
-@import './variables';
-@import '~node_modules/bootstrap/scss/bootstrap';
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
 
 // Roboto fonts are included in the angular.json "build" task "styles" array, for easy inclusion from the npm module
 

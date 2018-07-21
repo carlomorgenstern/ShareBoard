@@ -19,7 +19,7 @@ export const logger = winston.createLogger({
       level: processEnvironment.CONSOLE_LOG_LEVEL,
     }),
     new winston.transports.File({
-      filename: 'application.log',
+      filename: 'backend.log',
       format: winston.format.combine(
         winston.format.timestamp(),
         winston.format(info => {

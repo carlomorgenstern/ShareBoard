@@ -1,7 +1,4 @@
 {
-  "exclude": [
-    "node_modules"
-  ],
   /* Listed in the comments here are not the defaults, but likely options, if you want to include the setting */
   "compilerOptions": {
     /* Basic Options */
