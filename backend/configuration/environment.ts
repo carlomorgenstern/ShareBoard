@@ -13,15 +13,17 @@ const environmentVariables = [
 
 // Build environment variables object from dotenv & process.env and error, if one is not defined
 export const processEnvironment = environmentVariables.reduce<{[key: string]: any}>((environment, variable) => {
-  if (process.env[variable] !== undefined) {
+  const variableValue = process.env[variable];
+  if (variableValue !== undefined) {
     // do type conversion for variables that need it
     switch (variable) {
       case 'PORT':
-        if (Number.isNaN(Number.parseInt(process.env[variable], 10))) throw new Error(`Required environment variable 'PORT' is not an integer`);
-        environment[variable] = Number.parseInt(process.env[variable], 10);
+        if (Number.isNaN(Number.parseInt(variableValue, 10))) throw new Error("Required environment variable 'PORT' is not an integer");
+        environment[variable] = Number.parseInt(variableValue, 10);
         break;
       default:
         environment[variable] = process.env[variable];
+        break;
     }
   } else {
     // set defaults for optional environment variables
