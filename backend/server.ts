@@ -40,7 +40,9 @@ class Server {
   }
 
   private registerRoutes() {
-
+    // authentication handling for the user endpoints is done in their file
+    this.router.use('/api/v1/user', userRouter.routes(), userRouter.allowedMethods());
+    this.router.use('/api/v1/user-name', userNameRouter.routes(), userNameRouter.allowedMethods());
   }
 
   private serveFrontend() {
